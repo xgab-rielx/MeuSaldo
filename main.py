@@ -1,5 +1,6 @@
 from models import SpendingCreate, SpendingGet, SpendingUpdate
 from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
 
 from database import (
     init_db,
@@ -16,7 +17,10 @@ from datetime import datetime, date
 
 app = FastAPI()
 
+app.mount("/app", StaticFiles(directory="static", html=True), name="static")
+
 init_db()
+
 
 @app.get("/")
 def hello_world():

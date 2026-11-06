@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    <title>MeuSaldo</title>
+</head>
+<body>
+    <h1>MeuSaldo</h1>
+
+    <form id="spending-form">
+        <label for="description">Descrição</label>
+        <input id="description" name="description" type="text" required>
+
+        <label for="category">Categoria</label>
+        <input id="category" name="category" type="text" required>
+
+        <label for="value">Valor</label>
+        <input id="value" name="value" type="number" step="0.01" min="0" required>
+
+        <label for="date">Data</label>
+        <input id="date" name="date" type="datetime-local" required>
+        
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <p id="form-message" role="status" aria-live="polite"></p>
+
+    <section>
+        <h2>Gastos</h2>
+
+        <ul id="spendings-list"></ul>
+
+    </section>
+</body>
+</html>

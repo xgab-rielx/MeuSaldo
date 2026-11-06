@@ -26,7 +26,7 @@ O projeto permite cadastrar, listar, editar e excluir gastos, além de filtrar p
 1. Clone o repositório:
 
 ```bash
-git clone [https://github.com/xgab-rielx/MeuSaldo.git](https://github.com/xgab-rielx/MeuSaldo.git)
+git clone https://github.com/xgab-rielx/MeuSaldo.git
 cd MeuSaldo
 ```
 
