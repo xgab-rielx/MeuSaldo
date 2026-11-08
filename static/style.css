@@ -68,3 +68,31 @@ button:hover {
     white-space: pre-line;
 }
 
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+
+    form {
+        padding: 12px;
+    }
+
+    section label,
+    section input {
+        display: block;
+        width: 100%;
+    }
+
+    section label {
+        margin-top: 10px;
+    }
+
+    #spendings-list li {
+        align-items: flex-start;
+    }
+
+    #spendings-list button {
+        flex: 1 1 120px;
+    }
+}
+
