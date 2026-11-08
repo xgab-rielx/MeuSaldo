@@ -1,6 +1,6 @@
 # MeuSaldo
 
-MeuSaldo é uma API local para controle de gastos pessoais, desenvolvida com FastAPI e SQLite.
+MeuSaldo é um aplicativo local para controle de gastos pessoais, desenvolvido com FastAPI, SQLite e uma interface web responsiva.
 
 O projeto permite cadastrar, listar, editar e excluir gastos, além de filtrar por período e categoria e consultar o total gasto em um mês.
 
@@ -13,6 +13,8 @@ O projeto permite cadastrar, listar, editar e excluir gastos, além de filtrar p
 - Exclusão de gastos
 - Filtro por período e categoria
 - Consulta do total gasto em um mês
+- Interface web para cadastrar, listar, editar e excluir gastos
+- Interface para filtrar por período e categoria e consultar o total mensal
 
 ## Tecnologias
 
@@ -20,6 +22,7 @@ O projeto permite cadastrar, listar, editar e excluir gastos, além de filtrar p
 - FastAPI
 - SQLite
 - Pydantic
+- HTML, CSS e JavaScript
 
 ## Como executar
 
@@ -66,6 +69,12 @@ uvicorn main:app --reload
 http://127.0.0.1:8000/docs
 ```
 
+6. Acesse a interface web:
+
+```text
+http://127.0.0.1:8000/app
+```
+
 ## Endpoints
 
 | Método | Rota | Descrição |
@@ -107,12 +116,12 @@ MeuSaldo/
 ├── main.py        # Rotas da API
 ├── database.py    # Conexão e operações SQL
 ├── models.py      # Modelos Pydantic
-└── requirements.txt
+├── requirements.txt
+└── static/        # Interface web (HTML, CSS e JavaScript)
 ```
 
-## Próximos passos
+## Próximas etapas
 
-- Interface web responsiva
 - Autenticação
 - Backup automático
 - Publicação para uso pessoal
