@@ -20,3 +20,7 @@ class SpendingGet(BaseModel):
     category: str
     value: Decimal = Field(ge=0, max_digits=10, decimal_places=2)
     date: datetime
+
+class LoginRequest(BaseModel):
+    username: str
+    password: str
