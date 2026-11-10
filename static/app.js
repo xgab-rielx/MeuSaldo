@@ -3,6 +3,10 @@ function showMessage(message) {
   feedback.textContent = message;
 
 }
+function showLoginMessage(message) {
+  const feedback = document.querySelector("#login-message");
+  feedback.textContent = message;
+}
 
 async function carregarGastos() {
   let url = "/spendings";
@@ -74,7 +78,6 @@ async function carregarGastos() {
   }
 }
 
-carregarGastos();
 
 const categoria = document.querySelector("#filtro-category");
 categoria.addEventListener("input", function filtrar() {
@@ -144,4 +147,66 @@ async function totalMensal() {
 
   console.log(gasto_mes);
 }
-totalMensal()
+
+
+const login = document.querySelector("#login-form");
+
+login.addEventListener("submit", async function (cadastro) {
+  cadastro.preventDefault();
+  const username = document.querySelector("#username").value;
+  const password = document.querySelector("#password").value;
+
+  const usuario = {
+    "username": username,
+    "password": password
+  };
+
+  const resposta = await fetch("/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(usuario)
+  });
+
+  if (resposta.ok) {
+    showLoginMessage(
+      "Login feito com sucesso!"
+    );
+
+    login.hidden = true;
+    document.querySelector("#spending-app").hidden = false;
+
+    await carregarGastos()
+
+    await totalMensal()
+
+  } else {
+    showLoginMessage(
+      "Login inválido."
+    )
+  }
+});
+
+const logout = document.querySelector("#logout-button");
+
+logout.addEventListener("click", async function sair() {
+    const resposta = await fetch("/logout", {
+      method: "POST"
+    });
+    if (resposta.ok) {
+      document.querySelector("#spending-app").hidden = true;
+      login.hidden = false;
+    }
+});
+
+
+async function valid_session() {
+  const resposta = await fetch("/session");
+
+  if (resposta.ok) {
+    login.hidden = true;
+    document.querySelector("#spending-app").hidden = false;
+    await carregarGastos()
+    await totalMensal()
+  }
+}
+valid_session();

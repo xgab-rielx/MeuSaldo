@@ -10,6 +10,23 @@
 <body>
     <h1>MeuSaldo</h1>
 
+
+    <form id="login-form">
+        <label for="username">Nome de Usuário</label>
+        <input id="username" name="username" type="text" required>
+
+        <label for="password">Senha</label>
+        <input id="password" name="password" type="password" required>
+
+        <button type="submit">Entrar</button>
+
+        <p id="login-message" role="status" aria-live="polite"></p>
+    </form>
+
+<main id="spending-app" hidden>
+    
+    <button id="logout-button" type="button">Sair</button>
+
     <form id="spending-form">
         <label for="description">Descrição</label>
         <input id="description" name="description" type="text" required>
@@ -24,6 +41,7 @@
         <input id="date" name="date" type="datetime-local" required>
         
         <button type="submit">Cadastrar</button>
+
     </form>
 
     <p id="form-message" role="status" aria-live="polite"></p>
@@ -45,5 +63,6 @@
         <ul id="spendings-list"></ul>
 
     </section>
+</main>
 </body>
 </html>

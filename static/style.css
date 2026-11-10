@@ -25,6 +25,10 @@ form {
     border-radius: 8px;
 }
 
+[hidden] {
+    display: none;
+}
+
 label {
     font-weight: 600;
 }
