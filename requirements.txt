@@ -2,3 +2,5 @@ fastapi
 uvicorn
 pwdlib[argon2]
 itsdangerous
+psycopg[binary]
+python-dotenv

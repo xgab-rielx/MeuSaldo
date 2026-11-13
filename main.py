@@ -4,9 +4,9 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.staticfiles import StaticFiles
 import os
 from starlette.middleware.sessions import SessionMiddleware
+from dotenv import load_dotenv
 
 from database import (
-    init_db,
     create_spending,
     get_spendings,
     get_spending_by_id,
@@ -21,14 +21,15 @@ from datetime import datetime, date
 
 app = FastAPI()
 
+load_dotenv()
+
 app.add_middleware(
     SessionMiddleware,
-    secret_key=os.environ["SESSION_SECRET"]
+    secret_key=os.environ["SESSION_SECRET"],
+    https_only=os.environ["SESSION_COOKIE_SECURE"].lower() == "true",
 )
 
 app.mount("/app", StaticFiles(directory="static", html=True), name="static")
-
-init_db()
 
 
 @app.post("/login")
